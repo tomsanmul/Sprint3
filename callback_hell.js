@@ -15,6 +15,7 @@ const {
     .reverse()
     .join("");
   
+    
   // Read and reverse contents of text files in a directory
   readdir(inbox, (error, files) => {
     if (error) return console.log("Error: Folder inaccessible");
