@@ -18,41 +18,48 @@ const reverseText = str =>
   .join("");
 
 
+function llegirDirectori(inbox) {
+  return new Promise((resolve, reject) => {
+    readdir(inbox, (error, files) => {
+      if (error) reject(new Error("Error: Folder inaccessible"));
+      resolve(files);
+    });
+  });
+}
 
-function NoHell() {
-    try {
-      let files =   readdir(inbox, (error, files) )
-      //console.log(files)
-/*
-      files.forEach(file => {
-          let readFiles = promises.readFile(join(inbox, file), "utf8");
-          console.log(readFiles)
-          promises.writeFile(join(outbox, file), reverseText(readFiles));
-          console.log(`${readFiles} written`)
-        });
-             */
-      }
- 
-      catch (err) {
-        console.log(err)
-      }
+function llegirFitxer(fitxer) {
+  return new Promise((resolve, reject) => {
+    readFile(fitxer, "utf8", (error, data) => {
+      if (error) reject(new Error("Error: File error"));
+      resolve(data);
+    });
+  });
+}
+
+function escriureFitxer(fitxer, cadena) {
+  return new Promise((resolve, reject) => {
+    writeFile(join(outbox, fitxer), cadena, error => {
+      if (error) reject(new Error("Error: File could not be saved!"));
+      resolve(console.log(`${fitxer} file was successfully saved in the outbox!`));
+    });
+  });
+}
+
+
+
+async function NoHell() {
+  try {
+    let fitxer = await llegirDirectori(inbox);
+    let str_cadena = [];
+    for (i = 0; i < fitxer.length; i++) {
+      str_cadena[i] = await llegirFitxer(join(inbox, fitxer[i]));
+      str_cadena[i] = reverseText(str_cadena[i]);
+      await escriureFitxer(fitxer[i], str_cadena[i]);
     }
+  } catch (err) {
+    console.log(err)
+  }
+
+}
 
 NoHell();
-
-
-    // Read and reverse contents of text files in a directory
-    /*
-    readdir(inbox, (error, files) => {
-      if (error) return console.log("Error: Folder inaccessible");
-      files.forEach(file => {
-        readFile(join(inbox, file), "utf8", (error, data) => {
-          if (error) return console.log("Error: File error");
-          writeFile(join(outbox, file), reverseText(data), error => {
-            if (error) return console.log("Error: File could not be saved!");
-            console.log(`${file} was successfully saved in the outbox!`);
-          });
-        });
-      });
-    });
-    */
