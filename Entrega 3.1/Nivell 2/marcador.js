@@ -25,14 +25,12 @@ class Marcador {
 
 
     mostrarGuanyador(jugadors) {
-        let quantitatJugadors = jugadors.length;
         let guanyador;
-        let i = 0;
         let puntsUltimJugador = 0;
         let jugadorActual;
         let puntsJugadorActual;
 
-        for (i = 0; i < quantitatJugadors; i++) {
+        for (let i = 0; i < jugadors.length; i++) {
 
             jugadorActual = jugadors[i];
             puntsJugadorActual = jugadors[i].punts;

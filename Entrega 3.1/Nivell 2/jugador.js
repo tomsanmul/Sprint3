@@ -1,5 +1,3 @@
-const Marcador = require("./marcador");
-
 class Jugador {
     constructor(nom) {
         this.nom = nom,
@@ -7,6 +5,8 @@ class Jugador {
     }
 
 }
+
+
 
 module.exports = Jugador;
 
