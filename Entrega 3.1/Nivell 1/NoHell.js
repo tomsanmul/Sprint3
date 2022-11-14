@@ -18,6 +18,11 @@ const reverseText = str =>
   .join("");
 
 
+
+//**********************************************************************************************************/
+// NOU CODI NoHell .   Bàsicament he desglosat les 3 funcions LLegirDirectori, LLegirFitxer i EscriureFitxer
+//**********************************************************************************************************/
+
 function llegirDirectori(inbox) {
   return new Promise((resolve, reject) => {
     readdir(inbox, (error, files) => {

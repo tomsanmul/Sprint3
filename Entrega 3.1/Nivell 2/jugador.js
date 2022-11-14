@@ -1,8 +1,12 @@
+const Marcador = require("./marcador");
+
 class Jugador {
-    constructor(nom, cognmos) {
+    constructor(nom) {
         this.nom = nom,
-        this.cognmos = cognmos
+        this.punts = 0
     }
 
 }
+
+module.exports = Jugador;
 

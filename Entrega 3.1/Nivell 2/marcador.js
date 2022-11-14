@@ -1,6 +1,8 @@
 class Marcador {
-    constructor(marcador, puntuacio) {
-        this.marcador = marcador;
+
+    constructor(joc, jugador, puntuacio) {
+        this.joc = joc;
+        this.jugador = jugador;
         this.puntuacio = puntuacio;
 
         // SINGLETON
@@ -18,6 +20,35 @@ class Marcador {
             return this;
         }
 
+    }
 
+    
+    mostrarPuntuacio(jugador) {
+        console.log(`Jugador: ${jugador.nom} / Puntuació: ${jugador.puntuacio}`);
+    };
+
+
+    Guanyador(jugadors) {
+        let guanyador;
+        let i = 0;
+        let puntsUltimJugador = 0;
+        let jugadorActual;
+        let puntsJugadorActual;
+
+        for (i = 0; i < jugadors.length; i++) {
+
+            jugadorActual = jugadors[i];
+            puntsJugadorActual = jugadors[i].punts;
+
+            if (puntsJugadorActual >= puntsUltimJugador) {
+                puntsUltimJugador = puntsJugadorActual;
+                guanyador = jugadorActual;
+            }
+        }
+        console.log(`\nGuanyador: ${guanyador.nom} / Puntuació: ${puntsUltimJugador} punts`);
     }
 }
+
+
+
+module.exports = Marcador;
