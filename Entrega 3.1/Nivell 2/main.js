@@ -1,12 +1,10 @@
 const Joc = require("./joc.js");
 const Jugador = require("./jugador.js");
-const marcador = require("./marcador.js");
+const Marcador = require("./marcador.js")
 
 
 //Creo els jocs i els jugadors i els afegeixo en un array
-
 let jocs = [new Joc('Parchis'), new Joc('Oca'), new Joc('Uno')];
-
 let jugadors = [new Jugador('Tomas'), new Jugador('Dolors'), new Jugador('Toni'), new Jugador('Maria')];
 
 
@@ -17,42 +15,16 @@ jocs[2].afegirJugador(jugadors[0], jugadors[1], jugadors[2], jugadors[3]);
 
 
 
-function modificarPunts() {
-    let punts = 0;
-    let restarSumarPunts = parseInt(Math.random() * 2);
-
-    (restarSumarPunts == 0) ? punts = -2 : punts = 3;       // Si restarSumarPunts = 0 --> RESTEM 2 PUNTS // Si Si restarSumarPunts = 1 --> SUMEM 3 PUNTS
-    return punts;
-}
-
-function canviarPunts() {
-    let i = 0;
+function Partida() {
     let puntsJugadorJoc;
-    for (i = 0; i < 10; i++) {     // 10 rondes de jocs
-        let ronda = i + 1;
-        console.log(`\nRONDA ${ronda}: `);
+    for (let i = 0; i < 5; i++) {     
+        console.log(`\nTIRADA ${i+1}:`);   // 5 Tirades per cada joc
         jocs.forEach(joc => {
-
-            let puntsAModificar = 0;
-            let quantitatJugadors = joc.jugadors.length;
-            let posicioJugador = parseInt(Math.random() * quantitatJugadors);
-
-            let missatge;
-            puntsAModificar = modificarPunts()
-            if (puntsAModificar > 0) {
-                missatge = `S'han sumat ${puntsAModificar} punts`
-            } else {
-                missatge = `S'han restat ${-puntsAModificar} punts`
-            }
-
-            joc.jugadors[posicioJugador].punts += puntsAModificar;
+            let posicioJugador = parseInt(Math.random() * joc.jugadors.length);
+            let sumaPunts = parseInt(Math.random() * 11) -5; //Sumem un numero aleatori entre -5 i 5 a algún jugador
+            joc.jugadors[posicioJugador].punts += sumaPunts;
             puntsJugadorJoc = joc.jugadors[posicioJugador].punts;
-            console.log(` JOC: ${joc.nomJoc} ==>> ${missatge} al jugador ${joc.jugadors[posicioJugador].nomJugador}`);
-
-            if (puntsJugadorJoc < 0) {
-                joc.jugadors[posicioJugador].punts = 0;
-            };
-
+            console.log(` JOC: ${joc.nom} ==>> S'han ${(sumaPunts >= 0) ? "sumat" : "restat"} ${sumaPunts} punts al jugador ${joc.jugadors[posicioJugador].nom}`);
         });
     };
 
@@ -60,13 +32,13 @@ function canviarPunts() {
 
 
 function mostrarResultats() {
-    console.log("\nPUNTS TOTALS DE CADA JUGADOR:")
-    arrayJugadors.forEach(jugador => {
-        marcador.mostrarPunts(jugador);
+    console.log("\nPUNTS TOTALS PER JUGADOR:")
+    jugadors.forEach(jugador => {
+        Marcador.mostrarPunts(jugador);
     });
-    marcador.mostrarGuanyador(arrayJugadors);
+    Marcador.mostrarGuanyador(jugadors);
 };
 
 
-canviarPunts();
+Partida();
 mostrarResultats();

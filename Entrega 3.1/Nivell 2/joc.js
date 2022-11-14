@@ -1,5 +1,5 @@
 const Jugador = require("./jugador.js")
-const Marcador = require("./marcador.js");
+const Marcador = require("./marcador.js")
 
 
 class Joc {
