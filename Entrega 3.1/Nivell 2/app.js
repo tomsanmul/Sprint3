@@ -35,7 +35,7 @@ function Partida() {
 Partida();
 
 
-// Mostrem els resultats. La funció está a la clase Joc, i aquesta depén de la clase Marcador.
+// Mostrem els resultats. 
 jocs.forEach((joc) => {
     joc.mostrarResultats(joc.jugadors);
 });
