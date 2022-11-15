@@ -39,4 +39,3 @@ Partida();
 jocs.forEach((joc) => {
     joc.mostrarResultats(joc.jugadors);
 });
-
