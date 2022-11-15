@@ -36,6 +36,5 @@ Partida();
 
 
 // Mostrem els resultats. 
-jocs.forEach((joc) => {
-    joc.mostrarResultats(joc.jugadors);
-});
+const Result = new Joc
+Result.mostrarResultats(jugadors)

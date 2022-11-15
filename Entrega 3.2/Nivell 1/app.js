@@ -1,13 +1,11 @@
 //const Middleware = require('./middleware.js');
-const calculadora = require('./calculadora.js');
+const Calculadora = require('./calculadora.js')
 
-const fs = require('fs');
-
+const fs = require('fs')
 let dades = require("./fitxer.json")
-console.log(dades);
 
-
-calculadora.suma(dades.numero1, dades.numero2);
-calculadora.resta(dades.numero1, dades.numero2);
-calculadora.multiplica(dades.numero1, dades.numero2);
+const operacions = new Calculadora (dades.numero1, dades.numero2)
+operacions.suma(dades.numero1, dades.numero2)
+operacions.resta(dades.numero1, dades.numero2)
+operacions.multiplica(dades.numero1, dades.numero2)
 
