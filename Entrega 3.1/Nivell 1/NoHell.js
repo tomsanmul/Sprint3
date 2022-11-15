@@ -45,7 +45,7 @@ function escriureFitxer(fitxer, cadena) {
   return new Promise((resolve, reject) => {
     writeFile(join(outbox, fitxer), cadena, error => {
       if (error) reject(new Error("Error: File could not be saved!"));
-      resolve(console.log(`${fitxer} file was successfully saved in the outbox!`));
+        resolve(console.log(`${fitxer} file was successfully saved in the outbox!`));
     });
   });
 }
@@ -64,7 +64,6 @@ async function NoHell() {
   } catch (err) {
     console.log(err)
   }
-
 }
 
 NoHell();
