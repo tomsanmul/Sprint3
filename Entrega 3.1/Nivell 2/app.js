@@ -39,6 +39,8 @@ function mostrarResultats() {
     Marcador.mostrarGuanyador(jugadors);
 };
 
+
+
 Partida();
 mostrarResultats();
 
