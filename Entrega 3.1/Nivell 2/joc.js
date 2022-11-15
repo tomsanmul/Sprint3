@@ -12,6 +12,14 @@ class Joc {
         console.log(`Jugadors afegits al ${this.nom}: ${this.jugadors[0].nom} / ${this.jugadors[1].nom} / ${this.jugadors[2].nom} / ${this.jugadors[3].nom}.`);
     }
 
+    mostrarResultats(jugadors) {
+        console.log("\nPUNTS TOTALS DE CADA JUGADOR:")
+        jugadors.forEach(jugador => {
+            Marcador.mostrarPunts(jugador);
+        });
+        Marcador.mostrarGuanyador(jugadors);
+    };
+
 };
 
 

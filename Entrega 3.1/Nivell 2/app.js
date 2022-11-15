@@ -1,6 +1,5 @@
 const Joc = require("./joc.js");
 const Jugador = require("./jugador.js");
-const Marcador = require("./marcador.js");
 
 
 //Creo els jocs i els jugadors i els afegeixo en un array
@@ -14,7 +13,7 @@ jocs[1].afegirJugador(jugadors[0], jugadors[1], jugadors[2], jugadors[3]);
 jocs[2].afegirJugador(jugadors[0], jugadors[1], jugadors[2], jugadors[3]);
 
 
-
+// Funció principal de l'execució de la partida
 function Partida() {
     let puntsJugadorJoc;
     for (let i = 0; i < 5; i++) {        // 5 Tirades per cada joc
@@ -22,25 +21,22 @@ function Partida() {
         
         jocs.forEach(joc => {
             let posicioJugador = parseInt(Math.random() * joc.jugadors.length);
-            let sumaPunts = parseInt(Math.random() * 11) -5; //Sumem un numero aleatori entre -5 i 5 a algún jugador
+            let sumaPunts = parseInt(Math.random() * 11) -5; //Sumem un numero aleatori entre -5 i 5 a algún jugador aleatoriament.
             joc.jugadors[posicioJugador].punts += sumaPunts;
             puntsJugadorJoc = joc.jugadors[posicioJugador].punts;
-            console.log(` JOC: ${joc.nom} ==>> S'han ${(sumaPunts >= 0) ? "sumat" : "restat"} ${sumaPunts} punts al jugador ${joc.jugadors[posicioJugador].nom}`);
+            console.log(`  ${joc.nom} -> S'han ${(sumaPunts >= 0) ? "sumat" : "restat"} ${sumaPunts} punts al jugador ${joc.jugadors[posicioJugador].nom}`);
         });
     };
 
 }
 
-function mostrarResultats() {
-    console.log("\nPUNTS TOTALS DE CADA JUGADOR:")
-    jugadors.forEach(jugador => {
-        Marcador.mostrarPunts(jugador);
-    });
-    Marcador.mostrarGuanyador(jugadors);
-};
 
-
-
+// Executem la partida (5 tirades per Joc)
 Partida();
-mostrarResultats();
+
+
+// Mostrem els resultats. La funció está a la clase Joc, i aquesta depén de la clase Marcador.
+jocs.forEach((joc) => {
+    joc.mostrarResultats(joc.jugadors);
+});
 

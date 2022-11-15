@@ -25,22 +25,19 @@ class Marcador {
 
 
     mostrarGuanyador(jugadors) {
-        let guanyador;
-        let puntsUltimJugador = 0;
-        let jugadorActual;
-        let puntsJugadorActual;
+        //Per decidir qu es el guanyador creo 2 variables, guanyador i els puntGuanyador.
+        //Recorro tot l'array de Jugadors i em vaig quedan amb el jugador que tingui máxima cpuntuació, començan per 0
+        let guanyador = "";
+        let puntsGuanyador = 0;
 
         for (let i = 0; i < jugadors.length; i++) {
 
-            jugadorActual = jugadors[i];
-            puntsJugadorActual = jugadors[i].punts;
-
-            if (puntsJugadorActual >= puntsUltimJugador) {
-                puntsUltimJugador = puntsJugadorActual;
-                guanyador = jugadorActual;
+            if (jugadors[i].punts >= puntsGuanyador) {  
+                puntsGuanyador = jugadors[i].punts;
+                guanyador = jugadors[i];
             }
         }
-        console.log(`\nGuanyador: ${guanyador.nom} amb ${puntsUltimJugador} punts.`);
+        console.log(`\nGUANYADOR: ${guanyador.nom} amb ${puntsGuanyador} punts.`);
     }
 }
 
