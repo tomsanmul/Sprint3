@@ -1,5 +1,6 @@
 //const Middleware = require('./middleware.js');
 const calculadora = require('./calculadora.js');
+
 const fs = require('fs');
 
 let dades = require("./fitxer.json")
