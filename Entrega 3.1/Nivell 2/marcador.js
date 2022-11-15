@@ -3,15 +3,13 @@ class Marcador {
     constructor(joc, jugador, puntuacio) {
         // SINGLETON
 
-        //Necessitem crear només UN marcador. -> SINGLETON. No permetem crear més d'un marcador d'aquesta manera:
-
+        //Necessitem crear només UN MARCADOR. -> SINGLETON. No permetem crear més d'una clase marcador de la segënt manera:
         //PRIMER: Comprovem que el Marcador.instance no sigui "undefined".   
 
-        if (typeof (Marcador.instance) === "object") { //Si NO ho es, és adir que ja existeix l'objecte,
-            return Marcador.instance; // <- , simplemente retornem la instancia del marcador.
+        if (typeof (Marcador.instance) === "object") { //Si NO es undefined, significa que ja existeix el marcador.
+            return Marcador.instance; // <- , llavors, simplemente retornem la instancia del marcador.
         } else {
-            //Si SÍ es UNDEFINED, significa que estem intentan crear un altre Marcador, 
-            //i ho evitarem retornant la instància del primer i únic Marcador.
+            //Si SÍ es undefined, significa que no existeix el marcador, aleshores, el creem per 1er cop.
             Marcador.instance = this;
             this.joc = joc;
             this.jugador = jugador;
