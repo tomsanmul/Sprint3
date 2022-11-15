@@ -2,21 +2,21 @@ const { Console } = require("console")
 
 class Calculadora {
 
-    constuctor(numero1, numero2) {
-        this.num1 = numero1
-        this.num2 = numero2
+    constuctor(a, b) {
+        this.a = a
+        this.a = b
     }
 
-    suma(numero1, numero2)  {
-        console.log(`La SUMA de ${numero1} + ${numero2} es ${numero1 + numero2}`)
+    suma(a, b)  {
+        console.log(`La SUMA de ${a} + ${b} es = ${a + b}`)
     }
 
-    resta(numero1, numero2) {
-        console.log(`La RESTA de ${numero1} - ${numero2} es ${numero1 - numero2}`)
+    resta(a, b) {
+        console.log(`La RESTA de ${a} - ${b} es = ${a - b}`)
     }
 
-    multiplica(numero1, numero2) {
-        console.log(`La MULTIPLICACIÓ de ${numero1} * ${numero2} es ${numero1 * numero2}`)
+    multiplica(a, b) {
+        console.log(`La MULTIPLICACIÓ de ${a} * ${b} es = ${a * b}`)
     }
 
 }
