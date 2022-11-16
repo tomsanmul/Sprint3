@@ -1,5 +1,3 @@
-const { Console } = require("console")
-
 class Calculadora {
 
     constuctor(a, b) {
