@@ -27,18 +27,15 @@ function Partida() {
                 joc.jugadors[j].punts += sumaPunts;
                 console.log(`  ${joc.nom} -> S'han ${(sumaPunts >= 0) ? "sumat" : "restat"} ${sumaPunts} punts al jugador ${joc.jugadors[j].nom}`);
             }
-            console.log(` `);   
+            console.log(` `);
         });
     };
 
     console.log(`\n <------------------- FI DE LA PARTIDA ------------------>\n `);
-
 }
-
 
 // Executem la partida (5 tirades per Joc)
 Partida();
-
 
 // Mostrem els resultats. 
 const Result = new Joc

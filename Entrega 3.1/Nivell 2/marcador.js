@@ -23,14 +23,14 @@ class Marcador {
 
 
     mostrarGuanyador(jugadors) {
-        //Per decidir qu es el guanyador creo 2 variables, guanyador i els puntGuanyador.
+        //Per decidir qui es el guanyador creo 2 variables: guanyador (on guardaré el Nom) i els puntGuanyador del guanyador..
         //Recorro tot l'array de Jugadors i em vaig quedan amb el jugador que tingui máxima puntuació.
         let guanyador = "";
         let puntsGuanyador = -99;
 
         for (let i = 0; i < jugadors.length; i++) {
 
-            if (jugadors[i].punts >= puntsGuanyador) {  
+            if (jugadors[i].punts >= puntsGuanyador) {
                 puntsGuanyador = jugadors[i].punts;
                 guanyador = jugadors[i];
             }
