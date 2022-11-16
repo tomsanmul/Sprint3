@@ -17,17 +17,21 @@ jocs[2].afegirJugador(jugadors[0], jugadors[1], jugadors[2], jugadors[3]);
 function Partida() {
     console.log(`\n---- Tots els jugadors començen amb 0 punts ----`);
 
-    for (let i = 0; i < 5; i++) {        // 5 Tirades per cada joc
-        console.log(`\nTIRADA ${i+1}:`);  
+    for (let i = 0; i < 5; i++) { // 5 Tirades per cada joc
+        console.log(`\n  <------------------ TIRADA ${i+1} ------------------>\n`);
         jocs.forEach(joc => {
-            //Sumem un numero aleatori entre -5 i 5, a algún jugador, aleatoriament:
-            let sumaPunts = parseInt(Math.random() * 11) -5; 
-            let posicioJugador = parseInt(Math.random() * joc.jugadors.length);
+            //Sumem un numero aleatori entre -5 i 5, en cada tirada, a cada un dels jugadors
 
-            joc.jugadors[posicioJugador].punts += sumaPunts;
-            console.log(`  ${joc.nom} -> S'han ${(sumaPunts >= 0) ? "sumat" : "restat"} ${sumaPunts} punts al jugador ${joc.jugadors[posicioJugador].nom}`);
+            for (let j = 0; j < jugadors.length; j++) {
+                let sumaPunts = parseInt(Math.random() * 11) - 5;
+                joc.jugadors[j].punts += sumaPunts;
+                console.log(`  ${joc.nom} -> S'han ${(sumaPunts >= 0) ? "sumat" : "restat"} ${sumaPunts} punts al jugador ${joc.jugadors[j].nom}`);
+            }
+            console.log(` `);   
         });
     };
+
+    console.log(`\n <------------------- FI DE LA PARTIDA ------------------>\n `);
 
 }
 
