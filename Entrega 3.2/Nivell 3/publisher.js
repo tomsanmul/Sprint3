@@ -1,4 +1,5 @@
 //Sol.licitem la biblioteca RabbitMQ. Sino está, la instalem "npm install amqplib"
+const { connect } = require('amqplib');
 const amqp = require('amqplib/callback_api');
 
 
@@ -22,4 +23,13 @@ amqp.connect('amqp://localhost', function(error0, connection) {  //Ens conectem 
     channel.sendToQueue(queue, Buffer.from(msg));
     console.log(" [x] Sent %s", msg);
   });
+
+  
+  setTimeout(function() {
+    connection.close();
+    process.exit(0)
+    }, 500);
+
 });
+
+
