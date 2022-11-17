@@ -5,9 +5,12 @@ let dades = require("./fitxer.json")
 const a = dades.numero1
 const b = dades.numero2
 
+
 const calculadora = new Calculadora (a, b)
 
-  calculadora.suma(a, b)
-  calculadora.resta(a, b)
-  calculadora.multiplica(a, b)
+const mdw = new Middleware()
+mdw.addMiddelware()
 
+  mdw.suma(a, b)
+  mdw.resta(a, b)
+  mdw.multiplica(a, b)
