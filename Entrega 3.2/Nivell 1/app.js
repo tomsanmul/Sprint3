@@ -6,11 +6,19 @@ const a = dades.numero1
 const b = dades.numero2
 
 
-const calculadora = new Calculadora (a, b)
+const calculadora = new Calculadora(a, b)
+const mdw = new Middleware(calculadora)
 
-const mdw = new Middleware()
-mdw.addMiddelware()
 
-  mdw.suma(a, b)
-  mdw.resta(a, b)
-  mdw.multiplica(a, b)
+// Quadrat
+mdw.use((req, next) => {
+  req.a = req.a * req.a;
+  req.b = req.b * req.b;
+  console.log('El quadrat de a es: ' + req.a)
+  console.log('El quadrat de b es: ' + req.b)
+  next();
+});
+
+
+
+mdw.suma(a, b);
