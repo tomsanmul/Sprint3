@@ -1,20 +1,18 @@
 class Calculadora {
 
-    constuctor(a, b) {
-        this.a = a
-        this.a = b
+    suma(a,b)  {
+        console.log(`La suma de ${a} + ${b} es = ${a+b}`);
+        return (a+b);
     }
 
-    suma(a, b)  {
-        console.log(`La SUMA de ${a} + ${b} es = ${a + b}`)
+    resta(a,b) {
+        console.log(`La resta de ${a} - ${b} es = ${a-b}`);
+        return (a-b);
     }
 
-    resta(a, b) {
-        console.log(`La RESTA de ${a} - ${b} es = ${a - b}`)
-    }
-
-    multiplica(a, b) {
-        console.log(`La MULTIPLICACIÓ de ${a} * ${b} es = ${a * b}`)
+    multiplica(a,b) {
+        console.log(`EL producte de ${a} * ${b} es = ${a*b}`);
+        return (a*b);
     }
 
 }

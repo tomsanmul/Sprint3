@@ -1,7 +1,8 @@
 const Articles = require('./articles.js')
 const convertToEur = require("./decorator.js");
 
-//DECORATOR: -> una funcion que añade una propiedad es un decorator
+//DECORATOR: -> una funcio que aqfegeix una propietat es un decorator
+
 //Creo els articles i els afegeixo en un array
 let articles = [
     new Articles('Pantalons', 29.35, 'USD'),
