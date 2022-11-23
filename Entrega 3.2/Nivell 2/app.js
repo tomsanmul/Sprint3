@@ -13,8 +13,16 @@ let articles = [
 ]
 
 
+//Crido a la funció ConvertToEur, que està en el decorator.js
+articles.forEach(article => {
+        console.log(`${article.nom} - ${article.preu} ${article.moneda} <- costarà -> ${convertToEur(article.preu,article.moneda)} EUR.`);
+});
+
+
+/*
+// Manera tradicional de recòrrer l'array amb buble FOR,  fa el mateix que Foreach
 for (let i = 0; i < articles.length; i++) {
     let preuEur = convertToEur(articles[i].preu, articles[i].moneda);
     console.log(`${articles[i].nom} - ${articles[i].preu} ${articles[i].moneda} <--> ${preuEur} EUR.`);
-
 }
+*/
