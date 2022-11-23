@@ -10,20 +10,16 @@ const mdw = new Middleware(calculadora,a,b)
 
 //Quadrat
 mdw.use((req, next) => {
-  let cuadrat = Math.pow(req.a, 2)
-  console.log(`El cuadrat de ${req.a} es = ${cuadrat}`);
-  cuadrat = Math.pow(req.b, 2)
-  console.log(`El cuadrat de ${req.b} es = ${cuadrat}`);
+  console.log(`El cuadrat de ${req.a} es = ${Math.pow(req.a, 2)}`);
+  console.log(`El cuadrat de ${req.b} es = ${Math.pow(req.b, 2)}`);
   next();
 });
 
 
 //Cub
 mdw.use((req, next) => {
-  let cub = Math.pow(req.a, 3)
-  console.log(`El cub de ${req.a} es = ${cub}`);
-  cub = Math.pow(req.b, 3)
-  console.log(`El cub de ${req.b} es = ${cub}`);
+  console.log(`El cub de ${req.a} es = ${Math.pow(req.a, 3)}`);
+  console.log(`El cub de ${req.b} es = ${Math.pow(req.b, 3)}`);
   next();
 });
 
