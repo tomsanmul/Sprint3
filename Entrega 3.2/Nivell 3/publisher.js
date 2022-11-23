@@ -1,4 +1,8 @@
+//Exemple:  https://www.rabbitmq.com/tutorials/tutorial-one-javascript.html
+
+
 //Sol.licitem la biblioteca RabbitMQ. Sino está, la instalem "npm install amqplib"
+
 const {
   connect
 } = require('amqplib');
