@@ -9,29 +9,34 @@ const calculadora = new Calculadora()
 const mdw = new Middleware(calculadora,a,b)
 
 //Quadrat
-mdw.use((a, next) => {
-  let cuadrat = Math.pow(a, 2)
-  console.log(`El cuadrat de ${a} es = ${cuadrat}`);
+mdw.use((req, next) => {
+  let cuadrat = Math.pow(req.a, 2)
+  console.log(`El cuadrat de ${req.a} es = ${cuadrat}`);
+  cuadrat = Math.pow(req.b, 2)
+  console.log(`El cuadrat de ${req.b} es = ${cuadrat}`);
   next();
 });
 
 
 //Cub
 mdw.use((req, next) => {
-  let cub = Math.pow(req, 3)
-  console.log(`El cub de ${a} es = ${cub}`);
+  let cub = Math.pow(req.a, 3)
+  console.log(`El cub de ${req.a} es = ${cub}`);
+  cub = Math.pow(req.b, 3)
+  console.log(`El cub de ${req.b} es = ${cub}`);
   next();
 });
+
 
 //Divisio
 mdw.use((req, next) => {
-  req.b = req.b * 3;
-  console.log(`La divisio de ${a} ente ${b} es = ${(a / b).toFixed(2)}`);
+  console.log(`La divisio de ${req.a} entre ${req.b} es = ${(req.a / req.b).toFixed(2)}`);
   next();
 });
 
 
-
-mdw.suma(a,b);
-//mdw.resta(a,b);
-//mdw.multiplica(a,b);
+mdw.suma({a,b});
+console.log("----------------------------------------")
+mdw.resta({a,b});
+console.log("----------------------------------------")
+mdw.multiplica({a,b});

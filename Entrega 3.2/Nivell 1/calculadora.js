@@ -1,18 +1,18 @@
 class Calculadora {
 
-    suma(a,b)  {
-        console.log(`La suma de ${a} + ${b} es = ${a+b}`);
-        return (a+b);
+    suma(parametres)  {
+        console.log(`La suma de ${parametres.a} + ${parametres.b} es = ${parametres.a + parametres.b}`);
+        return (parametres.a+parametres.b);
     }
 
-    resta(a,b) {
-        console.log(`La resta de ${a} - ${b} es = ${a-b}`);
-        return (a-b);
+    resta(parametres) {
+        console.log(`La resta de ${parametres.a} - ${parametres.b} es = ${parametres.a - parametres.b}`);
+        return (parametres.a - parametres.b);
     }
 
-    multiplica(a,b) {
-        console.log(`EL producte de ${a} * ${b} es = ${a*b}`);
-        return (a*b);
+    multiplica(parametres) {
+        console.log(`EL producte de ${parametres.a} * ${parametres.b} es = ${parametres.a * parametres.b}`);
+        return (parametres.a * parametres.b);
     }
 
 }
