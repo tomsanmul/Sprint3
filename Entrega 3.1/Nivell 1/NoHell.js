@@ -1,7 +1,7 @@
 const {
-  readdir,
-  readFile,
-  writeFile
+  readdirSync,
+  readFileSync,
+  writeFileSync
 } = require("fs");
 
 const {
@@ -24,46 +24,31 @@ const reverseText = str =>
 //**********************************************************************************************************/
 
 function llegirDirectori(inbox) {
-  return new Promise((resolve, reject) => {
-    readdir(inbox, (error, files) => {
-      if (error) reject(new Error("Error: Folder inaccessible"));
-      resolve(files);
-    });
-  });
+  return (readdirSync(inbox));
 }
 
 function llegirFitxer(fitxer) {
-  return new Promise((resolve, reject) => {
-    readFile(fitxer, "utf8", (error, data) => {
-      if (error) reject(new Error("Error: File error"));
-      resolve(data);
-    });
-  });
+  return (readFileSync(join(inbox, fitxer), "utf8"));
 }
 
 function escriureFitxer(fitxer, cadena) {
-  return new Promise((resolve, reject) => {
-    writeFile(join(outbox, fitxer), cadena, error => {
-      if (error) reject(new Error("Error: File could not be saved!"));
-        resolve(console.log(`${fitxer} file was successfully saved in the outbox!`));
-    });
-  });
+  return (writeFileSync(join(outbox, fitxer), reverseText(cadena)));
 }
 
 
 
-async function NoHell() {
-  try {
-    let fitxer = await llegirDirectori(inbox);
-    let str_cadena = [];
-    for (i = 0; i < fitxer.length; i++) {
-      str_cadena[i] = await llegirFitxer(join(inbox, fitxer[i]));
-      str_cadena[i] = reverseText(str_cadena[i]);
-      await escriureFitxer(fitxer[i], str_cadena[i]);
+function NoHell() {
+  const fitxers = llegirDirectori(inbox);
+  fitxers.forEach(fitxer => {
+    try {
+      const cadena = llegirFitxer(fitxer);
+      escriureFitxer(fitxer, cadena);
+      console.log(`${ fitxer } was successfully saved in the outbox!`);
+    } catch (error) {
+      console.log("Error: File could not be saved!");
     }
-  } catch (err) {
-    console.log(err)
-  }
+  });
+
 }
 
 NoHell();
