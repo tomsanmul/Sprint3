@@ -18,6 +18,7 @@ class Joc {
             Marcador.mostrarPunts(jugador);
         });
         Marcador.mostrarGuanyador(jugadors);
+        
     };
 
 };
