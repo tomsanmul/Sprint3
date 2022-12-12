@@ -1,6 +1,5 @@
 const Joc = require("./joc.js");
 const Jugador = require("./jugador.js");
-const marcador = require("./marcador.js");
 
 
 //Creo els jocs i els jugadors i els afegeixo en un array
@@ -39,5 +38,5 @@ function Partida() {
 Partida();
 
 // Mostrem els resultats. 
-const Result = new Joc
-Result.mostrarResultats(jugadors)
+const Result = new Joc;
+Result.mostrarResultats(jugadors);
