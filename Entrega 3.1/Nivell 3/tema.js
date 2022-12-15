@@ -7,7 +7,7 @@ class Tema {
     };
 
 
-    altaTemaSubscripcio(usuari) {
+    altaSubscripcio(usuari) {
         this.usuaris.push(usuari);
         console.log(`Alta de l'usuari ${usuari.nomUsuari} al tema ${this.nomTema}`);
     };

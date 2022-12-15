@@ -1,7 +1,7 @@
 const Usuari = require("./usuari.js");
 const Tema = require("./tema.js");
 
-// Afegim Temes:
+
 console.log("<---------AFEGIM TEMES---------->");
 const tema1 = new Tema("Cotxes");
 const tema2 = new Tema("Motos");
@@ -37,11 +37,15 @@ tema3.altaSubscripcio(usuari3);
 tema3.altaSubscripcio(usuari6);
 
 console.log("");
-console.log("<------------- PROVEM LES NOTIFICACIONS ----------------->");
+
+console.log("<------------------- PROVEM LES NOTIFICACIONS ----------------------->");
+console.log("");
 
 usuari1.enviarMissatge(tema1, "Hola com esteu");
 console.log("");
+
 usuari2.enviarMissatge(tema2, "demà aniré a la piscina");
 console.log("");
-usuari3.enviarMissatge(tema3, "avui fa un bon dia");
 
+usuari3.enviarMissatge(tema3, "avui fa un bon dia");
+console.log("");
