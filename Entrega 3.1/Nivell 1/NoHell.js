@@ -36,7 +36,6 @@ function escriureFitxer(fitxer, cadena) {
 }
 
 
-
 function NoHell() {
   const fitxers = llegirDirectori(inbox);
   fitxers.forEach(fitxer => {
