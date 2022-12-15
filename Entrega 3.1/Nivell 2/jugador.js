@@ -1,9 +1,12 @@
 class Jugador {
-    constructor(nom) {
-        this.nom = nom,
-            this.punts = 0
+    constructor(nomJugador, puntuacio) {
+        this.nomJugador = nomJugador,
+        this.puntuacio = puntuacio
     }
 
+    afegeixPunts(punts){
+        this.puntuacio += punts;
+    }
 }
 
 module.exports = Jugador;
