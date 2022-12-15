@@ -13,7 +13,7 @@ class Tema {
     };
 
 
-    afegirMissatge(missatge, quiEnvia) {
+    afegirMissatge(missatge, quiEnvia) { //Afegeixo el paràmetre quiEnvia, amb el nom de l'usuari que envia el missatge, per filtrar més abaix que el mateix usuari no rebi el missatge que envia ell mateix
         this.missatges.push(missatge);
         this.usuaris.forEach((usuari) => {
             if (usuari.nomUsuari != quiEnvia) {  //Amb aquesta condició evitem que l'usuari que envia un missatge no el rebi ell mateix.
