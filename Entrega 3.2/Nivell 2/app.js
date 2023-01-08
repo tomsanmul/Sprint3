@@ -1,5 +1,6 @@
-const Articles = require('./articles.js')
-const convertToEur = require("./decorator.js");
+const Articles = require('./articles.js');
+const wrapped = require("./decorator.js");
+
 
 //DECORATOR: -> una funcio que aqfegeix una propietat es un decorator
 
@@ -13,9 +14,10 @@ let articles = [
 ]
 
 
-//Crido a la funció ConvertToEur, que està en el decorator.js
+
+//Crido a wrapped, que està en el decorator.js
 articles.forEach(article => {
-        console.log(`${article.nom} - ${article.preu} ${article.moneda} <- costarà -> ${convertToEur(article.preu,article.moneda)} EUR.`);
+        console.log(`${article.nom} - ${article.preu} ${article.moneda} <- costarà -> ${wrapped(article.preu,article.moneda)} EUR.`);
 });
 
 

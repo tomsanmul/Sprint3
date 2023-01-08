@@ -8,28 +8,40 @@ const CAD = dades.CAD_EUR
 
 
 function convertToEur(preu, moneda) {
+    let total;
     switch (moneda) {
 
         case "USD":
-            return (preu * USD).toFixed(2);
+            total = (preu * USD).toFixed(2);
             break;
         case "GBP":
-            return (preu * GBP).toFixed(2);
+            total =  (preu * GBP).toFixed(2);
             break;
         case "CHF":
-            return (preu * CHF).toFixed(2);
+            total =  (preu * CHF).toFixed(2);
             break;
         case "JPY":
-            return (preu * JPY).toFixed(2);
+            total =  (preu * JPY).toFixed(2);
             break;
         case "CAD":
-            return (preu * CAD).toFixed(2);
+            total =  (preu * CAD).toFixed(2);
             break;
         default:
             return ("ERROR, Moneda no definida");
     }
-
+    return total;
 
 }
 
-module.exports = convertToEur;
+function loggingDecorator(wrapped) {
+    return function() {
+        const result = wrapped.apply(this, arguments);
+        return result;
+      }
+  }
+
+const wrapped = loggingDecorator(convertToEur);
+
+
+
+module.exports = wrapped;
