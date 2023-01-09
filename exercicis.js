@@ -31,4 +31,3 @@ capitalAfterVowel("xaaBeuekadii");
 
 //----------------Exercici 2
 
-function sumEveryOther
