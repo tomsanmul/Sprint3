@@ -33,7 +33,6 @@ class Marcador {
             if (jugadors[i].punts >= puntsGuanyador) {
                 puntsGuanyador = jugadors[i].punts;
                 guanyador = jugadors[i];
-                guanyador = jugadors[i];
             }
         }
         console.log(`\nGUANYADOR: ${guanyador.nom} amb ${puntsGuanyador} punts.`);
