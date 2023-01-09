@@ -18,7 +18,7 @@ class Marcador {
 
 
     mostrarPuntuacio(jugador) {
-        console.log(`Jugador: ${jugador} - Punts: ${this.joc.jugador.puntuacio}`);
+        console.log(`Jugador: ${jugador.nomJugador} - Punts: ${jugador.puntuacio}`);
     };
 
    
@@ -50,4 +50,4 @@ class Marcador {
 
 }
 
-module.exports = new Marcador();
+module.exports = Marcador;

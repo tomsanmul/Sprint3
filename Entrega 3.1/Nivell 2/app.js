@@ -1,6 +1,8 @@
+
 const Joc = require("./joc.js");
 const Jugador = require("./jugador.js");
 const Marcador = require("./marcador.js");
+
 
 
 //Creo els jocs i els jugadors i els afegeixo en un array
@@ -24,7 +26,7 @@ jocs[2].afegirJugador(jugadors[0], jugadors[1], jugadors[2], jugadors[3]);
 // Funció principal de l'execució de la partida
 function Partida() {
     console.log(`\n---- Tots els jugadors començen amb 0 punts ----`);
-
+    
 
 
     for (let i = 0; i < 5; i++) { // 5 Tirades per cada joc
@@ -38,17 +40,18 @@ function Partida() {
                 console.log(`  ${joc.nomJoc} -> S'han ${(sumaPunts >= 0) ? "sumat" : "restat"} ${sumaPunts} punts al jugador ${joc.jugadors[j].nomJugador}`);
                 marcador.mostrarPuntuacio(jugadors[j]);
             }
+            
             console.log(` `);
         });
+        
     }
 
     console.log(`\n <------------------- FI DE LA PARTIDA ------------------>\n `);
+  
 }
 
 // Executem la partida (5 tirades per Joc)
 Partida();
 
-// Mostrem els resultats. 
 
-
-//console.log(marcador);
+marcador.mostrarResultats(jugadors);
