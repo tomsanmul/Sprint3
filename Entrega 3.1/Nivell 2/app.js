@@ -47,11 +47,10 @@ function Partida() {
     }
 
     console.log(`\n <------------------- FI DE LA PARTIDA ------------------>\n `);
-  
+    //marcador.mostrarResultats(jugadors);
 }
 
 // Executem la partida (5 tirades per Joc)
 Partida();
 
 
-marcador.mostrarResultats(jugadors);
