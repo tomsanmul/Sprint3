@@ -98,5 +98,5 @@ maxSubArray([1, 2, 0, 5], 2);
 
 
 //Exercici 4 
-//Given a string of any length which contains only digits frin 0 to 9, 
+//Given a string of any length which contains only digits fron 0 to 9, 
 //replace each consecutive run of the digit 0 with its length.
