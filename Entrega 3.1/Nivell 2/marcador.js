@@ -1,3 +1,5 @@
+const Jugador = require("./jugador.js");
+
 class Marcador {
 
     constructor() {
@@ -12,12 +14,12 @@ class Marcador {
             //Si SÍ es undefined, significa que no existeix el marcador, aleshores, el creem per 1er cop.
             Marcador.instance = this;
 
-            this.puntuacions = [];               
+            this.puntuacions = [];
         }
     }
 
 
-    afegeixPunts(joc, jugador, punts){
+    afegeixPunts(joc, jugador, punts) {
 
         //La ides es afegir objectes en el array puntuacions que contigui la puntuacio de cada joc i jugador.
 
@@ -30,66 +32,50 @@ class Marcador {
 
 
         //busco en el array de puntuacions, l'bojecte anterior dades, per JOC i JUGADOR . Si el trobo afegeixo /modifico els punts. Sino el trobo, el creo abaix. 
-        let i=0;
+        let i = 0;
         let encontrado = false;
 
-            for(i=0;i< this.puntuacions.length;i++){
-                    if (this.puntuacions[i].joc == dades.joc && this.puntuacions[i].jugador == dades.jugador) {                 
-                        this.puntuacions[i].punts += dades.punts;
-                        console.log(`  ${dades.joc} -> S'han ${(punts >= 0) ? "sumat" : "restat"} ${punts} punts al jugador ${dades.jugador}. PUNTS ACUMULATS: ${this.puntuacions[i].punts}`);
-                        encontrado = true;
-                    }
-                }
-
-        //si no l'he trobat en el array puntuacions de es que encara no existeix aquest JOC i JUGADOR, per tant l'inserto amb el PUSH
-            if (encontrado == false){ 
-                this.puntuacions.push(dades);
+        for (i = 0; i < this.puntuacions.length; i++) {
+            if (this.puntuacions[i].joc == dades.joc && this.puntuacions[i].jugador == dades.jugador) {
+                this.puntuacions[i].punts += dades.punts;
                 console.log(`  ${dades.joc} -> S'han ${(punts >= 0) ? "sumat" : "restat"} ${punts} punts al jugador ${dades.jugador}. PUNTS ACUMULATS: ${this.puntuacions[i].punts}`);
-            }    
-            
-    }
-
-
-    mostrarPunts(jugador) {
-
-        //busco en el array de puntuacions, l'bojecte anterior dades, per JOC i JUGADOR . Si el trobo afegeixo els punts. Sino el trobo, el creo abaix. 
-        let i=0;
-        for(i=0;i< this.puntuacions.length;i++){
-            if (this.puntuacions[i].joc == joc && this.puntuacions[i].jugador == jugador) {
-                console.log(`   Puntuacio actual: ${this.puntuacions[i].punts} `);
-                }
-        }
-        
-    };
-
-    
-    mostrarResultats() {
-        console.log("\nPUNTS TOTALS DE CADA JUGADOR:\n")
-        jugadors.forEach(jugador => {
-            mostrarPunts(jugador);
-        });
-        mostrarGuanyador(jugadors);
-        
-    };
-
-
-    mostrarGuanyador(jugadors) {
-        //Per decidir qui es el guanyador creo 2 variables: guanyador (on guardaré el Nom) i els puntGuanyador del guanyador..
-        //Recorro tot l'array de Jugadors i em vaig quedan amb el jugador que tingui máxima puntuació.
-        let guanyador = "";
-        let puntsGuanyador = -99;
-
-        for (let i = 0; i < jugadors.length; i++) {
-
-            if (jugadors[i].punts >= puntsGuanyador) {
-                puntsGuanyador = jugadors[i].punts;
-                guanyador = jugadors[i];
+                encontrado = true;
             }
         }
-        console.log(`\nGUANYADOR: ${guanyador.nom} amb ${puntsGuanyador} punts.`);
+
+        //si no l'he trobat en el array puntuacions de es que encara no existeix aquest JOC i JUGADOR, per tant l'inserto amb el PUSH
+        if (encontrado == false) {
+            this.puntuacions.push(dades);
+            console.log(`  ${dades.joc} -> S'han ${(punts >= 0) ? "sumat" : "restat"} ${punts} punts al jugador ${dades.jugador}. PUNTS ACUMULATS: ${this.puntuacions[i].punts}`);
+        }
+
     }
 
+    mostrarResultats() {
+        console.log("\nMARCADOR FINAL DE CADA JOC i JUGADOR:\n")
+        console.table(this.puntuacions);
 
-}
+    };
 
-module.exports = Marcador;
+
+
+    mostrarGuanyador(joc) {
+        // Primer: filtro els jugadors d'aquest joc en concret
+        const jugadors = this.puntuacions.filter(jugador => (jugador.joc == joc.nomJoc));
+
+        //Segon: dels 4 jugadors del Joc X, busco el que te màxima puntuacio
+        const Guanyador = jugadors.reduce((maxim, actual) => {
+                if (actual.punts > maxim.punts) {
+                    maxim = actual;
+                }
+                return maxim;
+            }
+            );
+         
+        //Imprimeixo per pantalla lúnic object que m'ha quedat del Guanyador:    
+         console.log(`El gunyador del ${joc.nomJoc} es ${Guanyador.jugador} amb ${Guanyador.punts} punts.`);
+        }
+
+    }
+
+    module.exports = Marcador;

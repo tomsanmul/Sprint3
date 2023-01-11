@@ -38,7 +38,6 @@ function Partida() {
             for (let j = 0; j < jugadors.length; j++) {
                 let sumaPunts = parseInt(Math.random() * 11) - 5;
                 marcador.afegeixPunts(joc.nomJoc, jugadors[j].nomJugador, sumaPunts);
-                //marcador.mostrarPuntuacio(joc.nomJoc, jugadors[j].nomJugador);
             }
             
             console.log(` `);
@@ -46,9 +45,20 @@ function Partida() {
         
     }
 
-    console.log(`\n <------------------- FI DE LA PARTIDA ------------------>\n `);
+    console.log(`\n <------------------- FI DE LA PARTIDA ------------------------>\n `);
+
+    // MOSTREM ELS RESULTATS TOTALS DE CADA JOC
     marcador.mostrarResultats();
+
+    //  MOSTREM ELS GUANYADORS DE CADA JOC:
+    jocs.forEach(joc => {          
+        marcador.mostrarGuanyador(joc);
+    });
+
+
 }
+
+
 
 // Executem la partida (5 tirades per Joc)
 Partida();
