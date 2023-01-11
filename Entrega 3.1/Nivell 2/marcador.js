@@ -12,36 +12,54 @@ class Marcador {
             //Si SÍ es undefined, significa que no existeix el marcador, aleshores, el creem per 1er cop.
             Marcador.instance = this;
 
-            this.puntuacio = [];               
+            this.puntuacions = [];               
         }
-    }
-
-    addScore(game, player, score) {
-        let marcador = {
-            "joc": game,
-            "jugador": player.username,
-            "puntuacio": score
-        }
-
-        this.modifyScore(marcador)
     }
 
 
     afegeixPunts(joc, jugador, punts){
-        let marcador = {
+
+        //La ides es afegir objectes en el array puntuacions que contigui la puntuacio de cada joc i jugador.
+
+        //Creo un objecte dades, i li afegeixo 3 propietats: joc, jugador i punts.
+        let dades = {
+            "joc": joc,
+            "jugador": jugador,
+            "punts": punts
+        }
+
+
+        //busco en el array de puntuacions, l'bojecte anterior dades, per JOC i JUGADOR . Si el trobo afegeixo /modifico els punts. Sino el trobo, el creo abaix. 
+        let i=0;
+        let encontrado = false;
+
+            for(i=0;i< this.puntuacions.length;i++){
+                    if (this.puntuacions[i].joc == dades.joc && this.puntuacions[i].jugador == dades.jugador) {                 
+                        this.puntuacions[i].punts += dades.punts;
+                        console.log(`  ${dades.joc} -> S'han ${(punts >= 0) ? "sumat" : "restat"} ${punts} punts al jugador ${dades.jugador}. PUNTS ACUMULATS: ${this.puntuacions[i].punts}`);
+                        encontrado = true;
+                    }
+                }
+
+        //si no l'he trobat en el array puntuacions de es que encara no existeix aquest JOC i JUGADOR, per tant l'inserto amb el PUSH
+            if (encontrado == false){ 
+                this.puntuacions.push(dades);
+                console.log(`  ${dades.joc} -> S'han ${(punts >= 0) ? "sumat" : "restat"} ${punts} punts al jugador ${dades.jugador}. PUNTS ACUMULATS: ${this.puntuacions[i].punts}`);
+            }    
             
         }
 
-        if (isNaN(this.puntuacio[jugador])){
-            this.puntuacio[jugador] = 0;
+
+    mostrarPuntuacio(joc, jugador) {
+
+        //busco en el array de puntuacions, l'bojecte anterior dades, per JOC i JUGADOR . Si el trobo afegeixo els punts. Sino el trobo, el creo abaix. 
+        let i=0;
+        for(i=0;i< this.puntuacions.length;i++){
+            if (this.puntuacions[i].joc == joc && this.puntuacions[i].jugador == jugador) {
+                console.log(`   Puntuacio actual: ${this.puntuacions[i].punts} `);
+                }
         }
-
-        this.puntuacio[jugador] += punts;
-
-    }
-
-    mostrarPuntuacio(jugador) {
-        console.log(`   Puntuacio: ${this.puntuacio[jugador]} `);
+        
     };
 
    
@@ -62,7 +80,7 @@ class Marcador {
     }
 
     
-    mostrarResultats(jugadors) {
+    mostrarResultats() {
         console.log("\nPUNTS TOTALS DE CADA JUGADOR:\n")
         jugadors.forEach(jugador => {
             mostrarPunts(jugador);

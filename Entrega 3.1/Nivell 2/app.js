@@ -37,9 +37,8 @@ function Partida() {
             //Sumem un numero aleatori entre -5 i 5, en cada tirada, a cada un dels jugadors
             for (let j = 0; j < jugadors.length; j++) {
                 let sumaPunts = parseInt(Math.random() * 11) - 5;
-                marcador.afegeixPunts(j, sumaPunts);
-                console.log(`  ${joc.nomJoc} -> S'han ${(sumaPunts >= 0) ? "sumat" : "restat"} ${sumaPunts} punts al jugador ${joc.jugadors[j].nomJugador}`);
-                marcador.mostrarPuntuacio(j);
+                marcador.afegeixPunts(joc.nomJoc, jugadors[j].nomJugador, sumaPunts);
+                //marcador.mostrarPuntuacio(joc.nomJoc, jugadors[j].nomJugador);
             }
             
             console.log(` `);
@@ -48,7 +47,7 @@ function Partida() {
     }
 
     console.log(`\n <------------------- FI DE LA PARTIDA ------------------>\n `);
-    //marcador.mostrarResultats(jugadors);
+    marcador.mostrarResultats();
 }
 
 // Executem la partida (5 tirades per Joc)
