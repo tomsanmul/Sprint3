@@ -1,5 +1,3 @@
-const Jugador = require("./jugador.js");
-
 class Marcador {
 
     constructor() {
@@ -23,7 +21,7 @@ class Marcador {
 
         //La ides es afegir objectes en el array puntuacions que contigui la puntuacio de cada joc i jugador.
 
-        //Creo un objecte dades, i li afegeixo 3 propietats: joc, jugador i punts.
+        //Creo un objecte "dades", i li afegeixo 3 propietats: joc, jugador i punts.
         let dades = {
             "joc": joc,
             "jugador": jugador,
@@ -31,7 +29,8 @@ class Marcador {
         }
 
 
-        //busco en el array de puntuacions, l'bojecte anterior dades, per JOC i JUGADOR . Si el trobo afegeixo /modifico els punts. Sino el trobo, el creo abaix. 
+        //busco en el array de puntuacions, l'objecte anterior dades, per JOC i JUGADOR . Si el trobo, només he d'afegir / modificar els punts. 
+        //Sino el trobo, (encontrado = false) el creo més abaix. 
         let i = 0;
         let encontrado = false;
 
@@ -43,7 +42,7 @@ class Marcador {
             }
         }
 
-        //si no l'he trobat en el array puntuacions de es que encara no existeix aquest JOC i JUGADOR, per tant l'inserto amb el PUSH
+        //si no l'he trobat en el array puntuacions, es que encara no existeix aquest JOC i JUGADOR, per tant, l'inserto amb un PUSH
         if (encontrado == false) {
             this.puntuacions.push(dades);
             console.log(`  ${dades.joc} -> S'han ${(punts >= 0) ? "sumat" : "restat"} ${punts} punts al jugador ${dades.jugador}. PUNTS ACUMULATS: ${this.puntuacions[i].punts}`);
@@ -54,28 +53,25 @@ class Marcador {
     mostrarResultats() {
         console.log("\nMARCADOR FINAL DE CADA JOC i JUGADOR:\n")
         console.table(this.puntuacions);
-
     };
 
 
-
     mostrarGuanyador(joc) {
-        // Primer: filtro els jugadors d'aquest joc en concret
+        // Primer: filtro només els 4 jugadors d'aquest joc en concret
         const jugadors = this.puntuacions.filter(jugador => (jugador.joc == joc.nomJoc));
 
         //Segon: dels 4 jugadors del Joc X, busco el que te màxima puntuacio
         const Guanyador = jugadors.reduce((maxim, actual) => {
-                if (actual.punts > maxim.punts) {
-                    maxim = actual;
-                }
-                return maxim;
+            if (actual.punts > maxim.punts) {
+                maxim = actual;
             }
-            );
-         
-        //Imprimeixo per pantalla lúnic object que m'ha quedat del Guanyador:    
-         console.log(`El gunyador del ${joc.nomJoc} es ${Guanyador.jugador} amb ${Guanyador.punts} punts.`);
-        }
+            return maxim;
+        });
 
+        //Imprimeixo per pantalla l' únic objecte que m'ha quedat del Guanyador:    
+        console.log(`El gunyador del ${joc.nomJoc} es: ${Guanyador.jugador}, amb ${Guanyador.punts} punts.`);
     }
 
-    module.exports = Marcador;
+}
+
+module.exports = Marcador;
