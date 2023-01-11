@@ -1,12 +1,12 @@
 const Middleware = require('./middleware.js');
-const Calculadora = require('./calculadora.js')
+const Calculadora = require('./calculadora.js');
 
-let dades = require("./fitxer.json")
-const a = dades.numero1
-const b = dades.numero2
+let dades = require("./fitxer.json");
+const a = dades.numero1;
+const b = dades.numero2;
 
-const calculadora = new Calculadora()
-const mdw = new Middleware(calculadora,a,b)
+const calculadora = new Calculadora();
+const mdw = new Middleware(calculadora);
 
 //Quadrat
 mdw.use((req, next) => {
@@ -27,12 +27,15 @@ mdw.use((req, next) => {
 //Divisio
 mdw.use((req, next) => {
   console.log(`La divisio de ${req.a} entre ${req.b} es = ${(req.a / req.b).toFixed(2)}`);
+  console.log(`La divisio de ${req.b} entre ${req.a} es = ${(req.a / req.b).toFixed(2)}`);
   next();
 });
 
 
-mdw.suma({a,b});
-console.log("----------------------------------------")
-mdw.resta({a,b});
-console.log("----------------------------------------")
-mdw.multiplica({a,b});
+console.log(`La suma de ${a} + ${b} es = ${mdw.suma({a,b})}`);
+console.log("-------------------------------");
+console.log(`La resta de ${a} + ${b} es = ${mdw.resta({a,b})}`);
+console.log("-------------------------------");
+console.log(`La multiplicació de ${a} * ${b} es = ${mdw.multiplica({a,b})}`);
+console.log("-------------------------------");
+

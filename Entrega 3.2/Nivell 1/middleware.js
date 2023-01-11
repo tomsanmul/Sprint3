@@ -1,10 +1,9 @@
 class Middleware {
-    constructor(calculadora,a,b) {
+    constructor(calculadora) {
         this.op = calculadora;
         this.middlewares = [];
-        this.req = {a,b};
-      
-     
+        this.req = {}
+           
         const prototype = Object.getPrototypeOf(this.op);  
         Object.getOwnPropertyNames(prototype).forEach(fn => { if (fn !== "constructor") return this.functionCreation(fn) })
     };
@@ -21,7 +20,8 @@ class Middleware {
     }
 
     functionCreation(fn){
-        this[fn] = () => {
+        this[fn] = args => {
+            this.req = args;
             this.executeMiddleware();
             return this.op[fn].call(this, this.req);
         };
