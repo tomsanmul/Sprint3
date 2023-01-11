@@ -7,7 +7,7 @@ const Marcador = require("./marcador.js");
 
 //Creo els jocs i els jugadors i els afegeixo en un array
 let jocs = [new Joc('Parchis'), new Joc('Oca'), new Joc('Dominó')];
-let jugadors = [new Jugador('Tomas',0), new Jugador('Javier',0), new Jugador('Eva',0), new Jugador('Maria',0)];
+let jugadors = [new Jugador('Tomas'), new Jugador('Javier'), new Jugador('Eva'), new Jugador('Maria')];
 
 
 // Afegim jugadors als 3 jocs, Parchís, Oca, Dominó: 
@@ -36,9 +36,9 @@ function Partida() {
             //Sumem un numero aleatori entre -5 i 5, en cada tirada, a cada un dels jugadors
             for (let j = 0; j < jugadors.length; j++) {
                 let sumaPunts = parseInt(Math.random() * 11) - 5;
-                jugadors[j].afegeixPunts(sumaPunts);
+                marcador.afegeixPunts(j, sumaPunts);
                 console.log(`  ${joc.nomJoc} -> S'han ${(sumaPunts >= 0) ? "sumat" : "restat"} ${sumaPunts} punts al jugador ${joc.jugadors[j].nomJugador}`);
-                marcador.mostrarPuntuacio(jugadors[j]);
+                marcador.mostrarPuntuacio(j);
             }
             
             console.log(` `);
