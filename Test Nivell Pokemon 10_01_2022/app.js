@@ -1,6 +1,6 @@
 const Pokemon = require("./pokemon.js");
 
-//declaro objetos de Ataques, (At1, At2, At3, At4),  per despres ficarlos en el arry d' atacs directament a cada Pokemon)
+//declaro objectes d' Atacs, (At1, At2, At3, At4),  per despres ficarlos en el arry d' atacs directament a cada Pokemon)
 let At1 = new Object();
     At1.nombre = 'Ataque relamapgo';
     At1.potencia = 3;
@@ -29,7 +29,7 @@ let pokemons = [
 
 ];
 
-//Exercici 1: Força im Error si el Tipus es diferent a agua, fuego, electrico, planta
+//Exercici 1: Força un Error, si el Tipus es diferent a agua, fuego, electrico, planta (Exemple: 'arbol')
 console.log("\nExercici 1: Força un Error si el Tipus es diferent a agua, fuego, electrico, planta\n");
 try {
     new Pokemon ('7', 'Jaime',5,'arbol', [At1, At2]);

@@ -1,6 +1,6 @@
 class Marcador {
 
-    constructor(joc) {
+    constructor() {
         // SINGLETON
 
         //Necessitem crear només UN MARCADOR. -> SINGLETON. No permetem crear més d'una clase marcador de la segënt manera:
@@ -11,13 +11,27 @@ class Marcador {
         } else {
             //Si SÍ es undefined, significa que no existeix el marcador, aleshores, el creem per 1er cop.
             Marcador.instance = this;
-            
-            this.joc = joc;
+
             this.puntuacio = [];               
         }
     }
 
-    afegeixPunts(jugador, punts){
+    addScore(game, player, score) {
+        let marcador = {
+            "joc": game,
+            "jugador": player.username,
+            "puntuacio": score
+        }
+
+        this.modifyScore(marcador)
+    }
+
+
+    afegeixPunts(joc, jugador, punts){
+        let marcador = {
+            
+        }
+
         if (isNaN(this.puntuacio[jugador])){
             this.puntuacio[jugador] = 0;
         }

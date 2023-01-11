@@ -1,5 +1,3 @@
-const Marcador = require("./marcador.js")
-
 class Joc {
     constructor(nomJoc) {
         this.nomJoc = nomJoc;

@@ -9,6 +9,7 @@ const Marcador = require("./marcador.js");
 let jocs = [new Joc('Parchis'), new Joc('Oca'), new Joc('Dominó')];
 let jugadors = [new Jugador('Tomas'), new Jugador('Javier'), new Jugador('Eva'), new Jugador('Maria')];
 
+let marcador = new Marcador();
 
 // Afegim jugadors als 3 jocs, Parchís, Oca, Dominó: 
 
@@ -32,7 +33,7 @@ function Partida() {
     for (let i = 0; i < 5; i++) { // 5 Tirades per cada joc
         console.log(`\n  <------------------ TIRADA ${i+1} ------------------>\n`);
         jocs.forEach(joc => {
-            let marcador = new Marcador(joc);
+            
             //Sumem un numero aleatori entre -5 i 5, en cada tirada, a cada un dels jugadors
             for (let j = 0; j < jugadors.length; j++) {
                 let sumaPunts = parseInt(Math.random() * 11) - 5;
