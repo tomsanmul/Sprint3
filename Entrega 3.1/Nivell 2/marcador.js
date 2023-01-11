@@ -11,14 +11,23 @@ class Marcador {
         } else {
             //Si SÍ es undefined, significa que no existeix el marcador, aleshores, el creem per 1er cop.
             Marcador.instance = this;
-            this.joc = joc;
             
+            this.joc = joc;
+            this.puntuacio = [];               
         }
     }
 
+    afegeixPunts(jugador, punts){
+        if (isNaN(this.puntuacio[jugador])){
+            this.puntuacio[jugador] = 0;
+        }
+
+        this.puntuacio[jugador] += punts;
+
+    }
 
     mostrarPuntuacio(jugador) {
-        console.log(`Jugador: ${jugador.nomJugador} - Punts: ${jugador.puntuacio}`);
+        console.log(`   Puntuacio: ${this.puntuacio[jugador]} `);
     };
 
    
