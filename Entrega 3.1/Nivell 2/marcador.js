@@ -47,10 +47,10 @@ class Marcador {
                 console.log(`  ${dades.joc} -> S'han ${(punts >= 0) ? "sumat" : "restat"} ${punts} punts al jugador ${dades.jugador}. PUNTS ACUMULATS: ${this.puntuacions[i].punts}`);
             }    
             
-        }
+    }
 
 
-    mostrarPuntuacio(joc, jugador) {
+    mostrarPunts(jugador) {
 
         //busco en el array de puntuacions, l'bojecte anterior dades, per JOC i JUGADOR . Si el trobo afegeixo els punts. Sino el trobo, el creo abaix. 
         let i=0;
@@ -62,7 +62,17 @@ class Marcador {
         
     };
 
-   
+    
+    mostrarResultats() {
+        console.log("\nPUNTS TOTALS DE CADA JUGADOR:\n")
+        jugadors.forEach(jugador => {
+            mostrarPunts(jugador);
+        });
+        mostrarGuanyador(jugadors);
+        
+    };
+
+
     mostrarGuanyador(jugadors) {
         //Per decidir qui es el guanyador creo 2 variables: guanyador (on guardaré el Nom) i els puntGuanyador del guanyador..
         //Recorro tot l'array de Jugadors i em vaig quedan amb el jugador que tingui máxima puntuació.
@@ -79,15 +89,6 @@ class Marcador {
         console.log(`\nGUANYADOR: ${guanyador.nom} amb ${puntsGuanyador} punts.`);
     }
 
-    
-    mostrarResultats() {
-        console.log("\nPUNTS TOTALS DE CADA JUGADOR:\n")
-        jugadors.forEach(jugador => {
-            mostrarPunts(jugador);
-        });
-        mostrarGuanyador(jugadors);
-        
-    };
 
 }
 
