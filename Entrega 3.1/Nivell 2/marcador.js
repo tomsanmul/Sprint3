@@ -29,11 +29,11 @@ class Marcador {
         }
 
 
-        //busco en el array de puntuacions, l'objecte anterior dades, per JOC i JUGADOR . Si el trobo, només he d'afegir / modificar els punts. 
-        //Sino el trobo, (encontrado = false) el creo més abaix. 
+        //busco en el array de puntuacions, l'objecte anterior dades, per JOC i JUGADOR . 
         let i = 0;
         let encontrado = false;
 
+        //Si el trobo, només he de modificar els punts. 
         for (i = 0; i < this.puntuacions.length; i++) {
             if (this.puntuacions[i].joc == dades.joc && this.puntuacions[i].jugador == dades.jugador) {
                 this.puntuacions[i].punts += dades.punts;
@@ -42,7 +42,7 @@ class Marcador {
             }
         }
 
-        //si no l'he trobat en el array puntuacions, es que encara no existeix aquest JOC i JUGADOR, per tant, l'inserto amb un PUSH
+        //Sino el trobo, (encontrado = false), es que encara no existeix aquest JOC i JUGADOR, per tant, l'inserto amb un PUSH
         if (encontrado == false) {
             this.puntuacions.push(dades);
             console.log(`  ${dades.joc} -> S'han ${(punts >= 0) ? "sumat" : "restat"} ${punts} punts al jugador ${dades.jugador}. PUNTS ACUMULATS: ${this.puntuacions[i].punts}`);
