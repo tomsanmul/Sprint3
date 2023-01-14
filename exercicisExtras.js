@@ -33,6 +33,7 @@ capitalAfterVowel("xaaBeuekadii");
 
 //-------------------------Exercici 2
 //Given a number, sum every second digit in that number.
+console.log('--------------------------------------------------')
 
 function sumEveryOther(numero) {
     let acumulador = 0;
@@ -53,6 +54,8 @@ sumEveryOther(1010.11);
 //Given an array of integers arr and an integer n, return a subarray of arr of
 //length n where the sum is the largest. Make sure you maintain the order of the
 //original array, and if n is greater than arr.length, you can choose what you want to return
+
+console.log('--------------------------------------------------')
 
 function maxSubArray(arrayOriginal, posicion) {
 
@@ -100,3 +103,41 @@ maxSubArray([1, 2, 0, 5], 2);
 //Exercici 4 
 //Given a string of any length which contains only digits fron 0 to 9, 
 //replace each consecutive run of the digit 0 with its length.
+
+console.log('--------------------------------------------------')
+
+function replaceZeros(StrNumber) {
+    let StrNumberFinal = "";
+    for (i = 0; i < StrNumber.length; i++) {
+
+        if (StrNumber[i] == '0') {
+            let j = i;
+            let cuantosCerosSeguidosHay = 1;
+            let finCerosSeguidos = false;
+
+            while (finCerosSeguidos == false) {
+                if (StrNumber[j + 1] == '0') {
+                    cuantosCerosSeguidosHay++;
+                    j++;
+                } else {
+                    finCerosSeguidos = true;
+                    StrNumberFinal += cuantosCerosSeguidosHay;
+                    i = (i + cuantosCerosSeguidosHay) -1;
+                }
+            }
+        }
+        else
+        {
+            StrNumberFinal += StrNumber[i];
+        }
+            
+
+    }
+    console.log(StrNumberFinal);
+    return;
+}
+
+replaceZeros('1234500362000440');
+replaceZeros('123450036200044');
+replaceZeros('000000000000');
+replaceZeros('123456789');
