@@ -16,4 +16,4 @@ class Pokemon {
 
 }
 
-module.exports = Pokemon;
+module.exports = Pokemonn;
