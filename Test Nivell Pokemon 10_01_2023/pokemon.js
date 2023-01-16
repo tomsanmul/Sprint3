@@ -1,6 +1,12 @@
 class Pokemon {
     constructor(numero, nombre, nivel, tipo, ataques) {
-
+        
+        /*
+        if (ataques.includes('nombre')) {
+            throw new Error(`El ataque no tiene nombre ó potencia`);
+        }
+        */
+       
         if (!['agua', 'fuego', 'electrico', 'planta'].includes(tipo)) {
             throw new Error(`El tipo ${tipo} no existe`);
           }

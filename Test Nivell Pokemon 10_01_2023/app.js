@@ -14,7 +14,7 @@ let pokemons = [
 //Exercici 1: Força un Error, si el Tipus es diferent a agua, fuego, electrico, planta (Exemple: 'arbol')
 console.log("\nExercici 1: Força un Error si el Tipus es diferent a agua, fuego, electrico, planta\n");
 try {
-    new Pokemon ('7', 'Jaime',5,'arbol', [{nom : 'Ataque terrestre', potencia : 4}, {nom : 'Ataque freidor', potencia : 2}])
+    new Pokemon ('7', 'Jaime',5,'arbol', [{nombre : 'Ataque terrestre', potencia : 4}, {nombre : 'Ataque freidor', potencia : 2}])
   } 
   catch (error) {
     console.log('Error: ' + error.message);
@@ -23,7 +23,16 @@ try {
   //Exercici 1b: Força un Error, si l'array d'atacs no es d'entre 1 i 4
 console.log("\nExercici 1b: Força un Error, si l'array d'atacs no es d'entre 1 i 4\n");
 try {
-    new Pokemon ('7', 'Jaime',5,'fuego', [{nom : 'Ataque terrestre', potencia : 4}, {nom : 'Ataque freidor', potencia : 2},{nom : 'Ataque terrestre', potencia : 4}, {nom : 'Ataque freidor', potencia : 2}, {nom : 'Ataque freidor', potencia : 2}]);
+    new Pokemon ('7', 'Jaime',5,'fuego', [{nombre : 'Ataque terrestre', potencia : 4}, {nom : 'Ataque freidor', potencia : 2},{nom : 'Ataque terrestre', potencia : 4}, {nom : 'Ataque freidor', potencia : 2}, {nom : 'Ataque freidor', potencia : 2}]);
+  } 
+  catch (error) {
+    console.log('Error: ' + error.message);
+  }
+
+    //Exercici 1c: Força un Error, si l'array d'atacs no te les propetitas nombre i/o potencia 
+console.log("\nForça un Error, si l'array d'atacs no te les propetitas nombre i/o potencia\n");
+try {
+    new Pokemon ('7', 'Jaime',5,'fuego', [{otroNombre : 'Ataque terrestre', pot : 4}]);
   } 
   catch (error) {
     console.log('Error: ' + error.message);
