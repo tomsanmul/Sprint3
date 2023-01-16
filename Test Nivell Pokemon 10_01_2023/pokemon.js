@@ -1,13 +1,21 @@
 class Pokemon {
-    constructor(numero, nombre, nivel, tipo, ataque) {
-        this.numero = numero,
+    constructor(numero, nombre, nivel, tipo, ataques) {
+
+        if (!['agua', 'fuego', 'electrico', 'planta'].includes(tipo)) {
+            throw new Error(`El tipo ${tipo} no existe`);
+          }
+
+        if ((ataques.length > 4) || (ataques.length < 1)){
+            throw new Error(`El numero de ataques debe ser entre 1 y 4`);
+          }
+
+
+         this.numero = numero,
             this.nombre = nombre,
             this.nivel = nivel,
             this.tipo = tipo,
-            this.ataque = ataque
-        if (this.tipo != 'agua' && this.tipo != 'fuego' && this.tipo != 'electrico' && this.tipo != 'planta') {
-            throw new Error(`El tipo ${this.tipo} no existe`);
-        }
+            this.ataques = ataques
+
     }
 
     subirNivel(sumanivel) {
