@@ -46,7 +46,7 @@ let pokemons = [
     nombre: 'Ataque acuatico',
     potencia: 3
   }, {
-    nom: 'Ataque volador',
+    nombre: 'Ataque volador',
     potencia: 2
   }])
 
@@ -93,14 +93,14 @@ try {
 
 //Exercici 1c: Força un Error, si l'array d'atacs no te les propiettas nombre i/o potencia 
 console.log("\nForça un Error, si l'array d'atacs no te les propetitas nombre i/o potencia\n");
-// try {
-//   let pok = new Pokemon('7', 'Jaime', 5, 'fuego', [{
-//     otroNombre: 'Ataque terrestre',
-//     pot: 4
-//   }]);
-// } catch (error) {
-//   console.log('Error: ' + error.message);
-// }
+try {
+  let pok = new Pokemon('7', 'Jaime', 5, 'fuego', [{
+    otroNombre: 'Ataque terrestre',
+    pot: 4
+  }]);
+} catch (error) {
+  console.log('Error: ' + error.message);
+}
 
 
 // Exercici 2: Mostra tots els Pokemons
