@@ -2,9 +2,9 @@ const Operation = require('./Operation.js');
 
 let operations = [
     new Operation('addition',2,2),
-    new Operation('subtraction',2,2),
-    new Operation('multiply',2,2),
-    new Operation('divide',2,2),
+    new Operation('subtraction',4,2),
+    new Operation('multiply',3,2),
+    new Operation('divide',10,5),
     new Operation('rest',13,5)
 ]
 
