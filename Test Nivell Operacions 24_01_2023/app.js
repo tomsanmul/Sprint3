@@ -10,7 +10,7 @@ let operations = [
 
 //force error if operation is not supported
 try{
-    new Operation('additionss',2,2); 
+    new Operation('percentage',2,2); 
 }
 catch(err){
     console.log(err.message);
