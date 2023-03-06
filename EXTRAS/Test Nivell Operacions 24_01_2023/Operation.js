@@ -1,6 +1,5 @@
 class Operation {
     constructor(op, number1, number2){
-
         if (!['addition', 'subtraction', 'multiply', 'divide', 'rest'].includes(op)){
             throw new Error(`Operation ${op} not supported`);
         }

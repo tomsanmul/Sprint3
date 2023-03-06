@@ -1,6 +1,6 @@
 //LLlegim el fitxer JSON i carreguem les variables de conversió en monedes en variables
 let dades = require("./currency_conversions.json")
-const USD = dades.CAD_EUR
+const USD = dades.USD_EUR
 const GBP = dades.GBP_EUR
 const CHF = dades.CHF_EUR
 const JPY = dades.JPY_EUR
